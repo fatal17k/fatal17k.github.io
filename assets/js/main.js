@@ -66,8 +66,14 @@ sr.reveal('.skills__subtitle', {})
 sr.reveal('.skills__name', {distance: '20px', delay: 50, interval: 100})
 sr.reveal('.skills__img', {delay: 400})
 
+/*SCROLL opinion*/
+sr.reveal('.opinion__img', {interval: 200})
+
 /*SCROLL PORTFOLIO*/
 sr.reveal('.portfolio__img', {interval: 200})
+
+/*SCROLL opinion*/
+sr.reveal('.opinion__img', {interval: 200})
 
 /*SCROLL CONTACT*/
 sr.reveal('.contact__subtitle', {})
@@ -84,9 +90,21 @@ form.addEventListener("submit", (event) => {
   const emailInput = document.querySelector('input[name="email"]');
   const messageInput = document.querySelector('textarea[name="message"]');
 
-  const name = nameInput.value;
-  const email = emailInput.value;
-  const message = messageInput.value;
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
+
+  // перевірка, що всі поля заповнені
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  // перевірка формату електронної адреси
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
 
   const data = new FormData();
   data.append("name", name);
@@ -109,6 +127,7 @@ form.addEventListener("submit", (event) => {
     })
     .catch((error) => console.error(error));
 });
+
 
 
 

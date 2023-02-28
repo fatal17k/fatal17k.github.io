@@ -11,6 +11,9 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <title>Portfolio responsive complete</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     </head>
     <body>
         <!--===== HEADER =====-->
@@ -225,15 +228,21 @@
                     </div>
 
                     <form action="./assets/email.php" class="contact__form" method="POST">
-  <div class="contact__inputs">
-    <input type="text" name="name" placeholder="Name" class="contact__input">
-    <input type="email" name="email" placeholder="Email" class="contact__input">
-  </div>
-
-  <textarea name="message" id="message" cols="0" rows="10" class="contact__input"></textarea>
-
-  <input type="submit" name="submit" value="submit" class="contact__button">
-</form>
+                        <!-- Використовуйте атрибут `for`, щоб зв'язати мітку зі вхідним полем -->
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name" class="contact__input" required>
+                      
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email" class="contact__input" required>
+                      
+                        <!-- Використовуйте `label` замість `id` для зв'язку мітки зі вхідним полем -->
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" cols="0" rows="10" class="contact__input" required></textarea>
+                      
+                        <!-- Додайте `name` для submit кнопки -->
+                        <input type="submit" name="submit" value="Submit" class="contact__button">
+                      </form>
+                      
 
                 </div>
             </section>

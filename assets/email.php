@@ -22,7 +22,11 @@ if (isset($_POST['submit'])) {
       // Повідомляємо користувача про успішність відправки листа
       echo "success";
     } else {
-      echo "error";
+      echo "error: Unable to send message";
     }
+    if (empty($name) || empty($email) || empty($message)) {
+      echo "error: Please fill in all fields";
   }
 ?>
+
+

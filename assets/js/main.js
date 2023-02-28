@@ -81,52 +81,7 @@ sr.reveal('.contact__text', {interval: 200})
 sr.reveal('.contact__input', {delay: 400})
 sr.reveal('.contact__button', {delay: 600})
 
-const form = document.querySelector(".contact__form");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const nameInput = document.querySelector('input[name="name"]');
-  const emailInput = document.querySelector('input[name="email"]');
-  const messageInput = document.querySelector('textarea[name="message"]');
-
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const message = messageInput.value.trim();
-
-  // перевірка, що всі поля заповнені
-  if (name === "" || email === "" || message === "") {
-    alert("Please fill in all fields");
-    return;
-  }
-
-  // перевірка формату електронної адреси
-  if (!/\S+@\S+\.\S+/.test(email)) {
-    alert("Please enter a valid email address");
-    return;
-  }
-
-  const data = new FormData();
-  data.append("name", name);
-  data.append("email", email);
-  data.append("message", message);
-
-  fetch("./assets/email.php", {
-    method: "POST",
-    body: data,
-  })
-    .then((response) => {
-      if (response.ok) {
-        console.log("Message sent successfully");
-        nameInput.value = "";
-        emailInput.value = "";
-        messageInput.value = "";
-      } else {
-        console.error("Error sending message");
-      }
-    })
-    .catch((error) => console.error(error));
-});
 
 
 

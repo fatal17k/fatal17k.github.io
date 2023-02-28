@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $message = $_POST['message'];
   
     // Встановлюємо адресу, на яку потрібно відправити лист
-    $to = "maksimkalus17@gmail.com"; // Замініть цю адресу на власну
+    $to = "example@example.com"; // Замініть цю адресу на власну
   
     // Встановлюємо тему листа
     $subject = "Нове повідомлення від " . $name;
@@ -18,16 +18,16 @@ if (isset($_POST['submit'])) {
                "X-Mailer: PHP/" . phpversion();
   
     // Відправляємо лист
-    if (mail($to, $subject, $message, $headers)) {
+    if (empty($name) || empty($email) || empty($message)) {
+      echo "error: Please fill in all fields";
+    } else if (mail($to, $subject, $message, $headers)) {
       // Повідомляємо користувача про успішність відправки листа
       echo "success";
     } else {
       echo "error: Unable to send message";
     }
-    if (empty($name) || empty($email) || empty($message)) {
-      echo "error: Please fill in all fields";
-  }
+}
 ?>
 
-<p>Привет, форма отправлена</p>
+
 
